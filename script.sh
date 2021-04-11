@@ -24,4 +24,4 @@ MON_Y=`echo $MON_PARSE | cut -f3 -d'+'`
 
 # exit
 
-ffmpeg -f x11grab -r $FPS_RATE -s "$MON_WIDTH"x"$MON_HEIGHT" -i $DISPLAY+"$MON_X","$MON_Y" -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video4
+ffmpeg -f x11grab -r $FPS_RATE -s "$MON_WIDTH"x"$MON_HEIGHT" -i $DISPLAY+"$MON_X","$MON_Y" -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 -vf hflip /dev/video4
